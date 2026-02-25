@@ -1,20 +1,16 @@
- import Card from "./components/Card";
- import Counter from "./components/Counter";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Test from "./pages/Test";
+import Chat from "./pages/Chat";
 
 function App() {
-  const handleClick = (data) => {
-    console.log("클릭!!!", data);
-  }
-
   return (
-    <div className="App">
-      <Card username={"햄찌"} onbuttonclick={handleClick}/>
-      <Card username={"혜진"} sale={50} onbuttonclick={handleClick}/>
-      <Card username={"목욜"} sale={30} onbuttonclick={handleClick}/>
-      <Card sale={0} onbuttonclick={handleClick}/>
-      {/*Counter*/}
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Test />} />
+        <Route path="/chat" element={<Chat />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
